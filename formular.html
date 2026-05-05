@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="googlebot" content="noindex">
+    <meta property="og:title" content="Seitenelement">
+    <meta property="og:image" content="http://example.com">
+    <title>Anmeldefomular</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 20px;
+            background: #fff;
+            line-height:1.6 ;
+            color:rgb(21, 21, 80);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .form-container{
+            max-width: 800px;
+            margin: 0 auto;
+            background: #e6d7d7;
+            padding:40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section{
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dotted #e1e8ed;
+            
+        }
+        .form-section:last-child{
+            border-bottom: none;
+        }
+        .form-row{
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group{
+            display: flex;
+
+            flex: 1;
+            flex-direction: column;
+        }
+        .form-narrow-item{
+            max-width: 200px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: rgb(33, 39, 64);
+            font-size: .9rem;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea,
+        select{
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgb(197, 197, 197);
+            border-radius: 8px;
+            font-size: 16px;
+            background: #fff;
+        }
+        .select-wrapper{
+            position: relative;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus{
+            outline: none;
+            border-color: rgb(28, 102, 102);
+
+        }
+
+        .select-wrapper::after{
+            content:"" ;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: rgb(154, 149, 149) ;
+            right:13px ;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .select-wrapper select{
+            appearance: none;
+            cursor: pointer;
+
+        }
+        .radio-group{
+            display: flex;
+            gap: 25px;
+        }
+        .radio-label{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @media screen and(max-width:767px){
+            .fomrm-container {
+                padding: 25px;
+            }
+            .from-row {
+                flex-direction: column;
+            }
+            .form-narrow-item{
+                max-width: 100%;
+            }
+        } 
+            
+        @media screen and (max-width:767px) 
+        and(orientation: portrait){
+            body{
+                background: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/projekte.html">Projekte</a>
+    <div class="form-container">
+        <h1>Anmeldefomular</h1>
+
+        <form method="post" action="anmeldung.php">
+            <div class="form-section">
+                <h2 class="section.title">Persöniche Angabe</h2>
+                <div class="form-group">
+                    <label for="anrede">Anrede</label>
+                    <div class="select-wrapper">
+                        <select name="anrede" id="anrede"required="required">
+                        <option value="" class="">Bitte wählen</option>
+                        <option value="herr" class="">Herr</option>
+                        </select> 
+                    </div>
+                </div>
+            
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="anrede">Vorname</label>
+                    <input type="text" name="vorname" id="vorname" required>
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="anrede">Nachname</label>
+                <input type="text" name="nachname" id="nachname" required>
+            </div>
+            <div>
+                <h2 class="section.title">IT-Kenntnisse</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="">Können/Level>
+                            <div class="radio-label">
+                                <label for="anfänger">Anfänger</label>
+                                <input type="radio" name="anfänger" id="anfänger">
+                                <label for="fortgeschritten">Fortgeschritten</label>
+                                <input type="radio" name="fortgeschritten" id="fortgeschritten">
+                                <label for="experte">Experte</label>
+                                <input type="radio" name="experte" id="experte">
+
+                            </div>
+                        </label>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+</body>
+</html>
